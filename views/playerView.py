@@ -29,10 +29,9 @@ def create_player():
             db.session.commit()
 
         new_player = Player(
-            full_name=full_name,
+            name=name,
             position=position,
             image_url=image_urls,
-            is_potm=True,
         )
         db.session.add(new_player)
         db.session.commit()

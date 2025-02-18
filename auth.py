@@ -1,6 +1,7 @@
 from flask import request, jsonify
 from werkzeug.security import check_password_hash, generate_password_hash
 import os
+from functools import wraps
 
 ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME")
 ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD")
@@ -34,10 +35,3 @@ def login():
     if auth and authenticate(auth.username, auth.password):
         return jsonify({'message': 'login successful'}), 200
     return jsonify({'message': 'invalid credentials'}), 401
-
-
-def check_auth():
-    auth = request.authorization
-    if auth and authenticate(auth.username, auth.password):
-        return jsonify({'authenticated': True}), 200
-    return jsonify({'authenticated': False}), 401
