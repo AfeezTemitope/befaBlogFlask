@@ -16,6 +16,12 @@ app.config.from_object(Config)
 CORS(app)
 db.init_app(app)
 
+
+@app.route('/')
+def home():
+    return "welcome"
+
+
 app.register_blueprint(befa)
 migrate = Migrate(app, db)
 if __name__ == '__main__':

@@ -1,5 +1,5 @@
 from flask import Blueprint
-from auth import requires_auth, login, check_auth
+from auth import requires_auth, login
 from views.playerView import create_player, get_player
 
 befa = Blueprint('befa', __name__)
@@ -10,9 +10,9 @@ def login_route():
     return login()
 
 
-@befa.route('/check-auth')
-def check_auth_route():
-    return check_auth()
+# @befa.route('/check-auth')
+# def check_auth_route():
+#     return check_auth()
 
 
 @befa.post('/player')
