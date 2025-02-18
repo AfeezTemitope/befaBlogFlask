@@ -7,24 +7,31 @@ from flask import Flask, request, jsonify
 def create_player():
     full_name = request.form.get('full_name')
     position = request.form.get('position')
-    image = request.files.get('image')
+    images = request.files.get('images')
 
-    if not full_name or not position or not image:
+    if not full_name or not position or not images:
         return jsonify({'message': 'Missing required fields'}), 400
-
+    if len(images) < 3 or len(images) > 5:
+        return jsonify({'message': 'must upload 3 to 5 images'}), 400
+    image_urls = []
     try:
-        upload_result = cloudinary.uploader.upload(image)
-        image_url = upload_result.get('secure_url')
+        for image in images:
+            upload_result = cloudinary.uploader.upload(image)
+            image_url = upload_result.get('secure_url')
+            image_urls.append(image_url)
 
         previous_potm = Player.query.filter_by(is_potm=True).first()
         if previous_potm:
-            previous_potm.is_potm = False
+            for url in previous_potm.image_urls:
+                public_id = url.split('/')[-1].split('.')[0]
+                cloudinary.uploader.destroy(public_id)
+            db.session.delete(previous_potm)
             db.session.commit()
 
         new_player = Player(
             full_name=full_name,
             position=position,
-            image_url=image_url,
+            image_url=image_urls,
             is_potm=True,
         )
         db.session.add(new_player)

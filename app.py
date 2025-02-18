@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+from flask_cors import CORS
 from flask_migrate import Migrate
 
 load_dotenv()
@@ -12,7 +13,7 @@ from models.player import db
 app = Flask(__name__)
 app.config.from_object(Config)
 
-
+CORS(app)
 db.init_app(app)
 
 app.register_blueprint(befa)
