@@ -13,7 +13,7 @@ from urls import befa
 app = Flask(__name__)
 app.config.from_object(Config)
 
-cors = CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "https://befa-blog-flask.vercel.app"]}})
+cors = CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "https://befa-blog-flask.vercel.app", "https://befa-blog.vercel.app/"]}})
 
 db.init_app(app)
 
