@@ -24,6 +24,6 @@ class Player(db.Model):
             'id': self.id,
             'name': self.name,
             'position': self.position,
-            'image_urls': json.loads(self.image_urls),
+            'image_urls': self.image_urls,
             'is_potm': self.is_potm
         }

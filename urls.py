@@ -10,11 +10,6 @@ def login_route():
     return login()
 
 
-# @befa.route('/check-auth')
-# def check_auth_route():
-#     return check_auth()
-
-
 @befa.post('/player')
 @requires_auth
 def create_potm_route():
