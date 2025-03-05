@@ -1,4 +1,4 @@
-name: befa blog flask
+name: tbelzbby/befablogflask
 
 on:
   push:
@@ -31,16 +31,16 @@ jobs:
       # Run tests (optional)
       # - name: Run tests
       #   run: |
-      #     docker run my-flask-app python -m pytest tests/
+      #     docker run befablogflask python -m pytest tests/
 
       # Tag the Docker image
       - name: Tag Docker image
         run: |
-          docker tag my-flask-app ${{ secrets.DOCKER_HUB_USERNAME }}/my-flask-app:latest
-          docker tag my-flask-app ${{ secrets.DOCKER_HUB_USERNAME }}/my-flask-app:${{ github.sha }}
+          docker tag befablogflask ${{ secrets.DOCKER_HUB_USERNAME }}/befablogflask:latest
+          docker tag befablogflask ${{ secrets.DOCKER_HUB_USERNAME }}/befablogflask:${{ github.sha }}
 
       # Push the Docker image to Docker Hub
       - name: Push Docker image
         run: |
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/my-flask-app:latest
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/my-flask-app:${{ github.sha }}
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/befablogflask:latest
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/befablogflask:${{ github.sha }}
