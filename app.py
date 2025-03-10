@@ -20,7 +20,7 @@ CORS(app, resources={
         "origins": [
             "http://localhost:5173",
             "https://befa-blog.vercel.app",
-            "https://befa.s3-website.eu-north-1.amazonaws.com"
+            "http://befa.s3-website.eu-north-1.amazonaws.com/"
         ]
     }
 })
