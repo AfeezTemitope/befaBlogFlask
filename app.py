@@ -14,16 +14,16 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 # cors = CORS(app, resources={r"/*": {"origins": ["http://localhost:5173/", "https://befa-blog.vercel.app/"]}})
-# CORS(app)
-CORS(app, resources={
-    r"/*": {
-        "origins": [
-            "http://localhost:5173",
-            "https://befa-blog.vercel.app",
-            "http://befa.s3-website.eu-north-1.amazonaws.com/"
-        ]
-    }
-})
+CORS(app)
+# CORS(app, resources={
+#     r"/*": {
+#         "origins": [
+#             "http://localhost:5173",
+#             "https://befa-blog.vercel.app",
+#             "http://befa.s3-website.eu-north-1.amazonaws.com/"
+#         ]
+#     }
+# })
 db.init_app(app)
 
 migrate = Migrate(app, db)
