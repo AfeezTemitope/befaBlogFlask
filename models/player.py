@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 from flask_sqlalchemy import SQLAlchemy
 
@@ -53,4 +54,28 @@ class TrainingDay(db.Model):
             'time': self.time,
             'venue': self.venue,
             'jersey_color': self.jersey_color
+        }
+
+
+class ClubAnnouncement(db.Model):
+    __tablename__ = 'club_announcement'
+    id = db.Column(db.Integer, primary_key=True)
+    image_urls = db.Column(db.JSON, nullable=False)
+    caption = db.Column(db.String(200), nullable=False)
+    date_posted = db.Column(db.String(50), nullable=False)
+    author = db.Column(db.String(50), nullable=False)
+
+    def __init__(self, image_urls, caption, date_posted, author):
+        self.image_urls = image_urls
+        self.caption = caption
+        self.date_posted = date_posted
+        self.author = author
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'image_urls': self.image_urls,
+            'caption': self.caption,
+            'date_posted': self.date_posted,
+            'author': self.author
         }

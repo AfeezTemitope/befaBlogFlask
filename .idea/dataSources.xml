@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="MySQL" uuid="a154bafa-2aff-4d9a-a0d9-532031749744">
-      <driver-ref>mysql.8</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://root:qcKaBZRPSWlXepRDVqcYDcjXodgGpItm@tramway.proxy.rlwy.net:40434/railway</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
     <data-source source="LOCAL" name="neondb@ep-red-queen-a4fylqky-pooler.us-east-1.aws.neon.tech" uuid="1225a371-7686-4619-8e6e-71b229d552a4">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>

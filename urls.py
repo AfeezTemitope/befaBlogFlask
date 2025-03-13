@@ -1,5 +1,6 @@
 from flask import Blueprint
 from auth import requires_auth, login
+from views.clubAnnouncement import club_announcement, get_club_announcement
 from views.playerView import create_player, get_player
 from views.trainingView import create_training_day, get_training_schedule
 
@@ -31,3 +32,14 @@ def create_training_route():
 @befa.get('/schedule')
 def get_schedule_route():
     return get_training_schedule()
+
+
+@befa.post('/club-announcement')
+@requires_auth
+def post_club_announcement():
+    return club_announcement()
+
+
+@befa.get('/club-announcement')
+def get_befa_announcement():
+    return get_club_announcement()
