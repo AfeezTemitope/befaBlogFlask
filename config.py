@@ -9,3 +9,5 @@ class Config:
     CLOUDINARY_CLOUD_NAME = os.environ.get("CLOUDINARY_CLOUD_NAME")
     CLOUDINARY_API_KEY = os.environ.get("CLOUDINARY_API_KEY")
     CLOUDINARY_API_SECRET = os.environ.get("CLOUDINARY_API_SECRET")
+
+    REDIS_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
